@@ -177,7 +177,7 @@ public class Quiz {
         // Part 2 of Quiz
 
         Scanner scan2 = new Scanner(System.in);
-        String[] categories = {"High Customization", "Low Build Time", "Low Cost", "High User Friendliness", "Low Developer Risk", "High Rate App Scale"};
+        //String[] categories = {"High Customization", "Low Build Time", "Low Cost", "High User Friendliness", "Low Developer Risk", "High Rate App Scale"};
 
         System.out.println("For the categories listed below:");
         System.out.println("1. High Customization");
@@ -206,39 +206,83 @@ public class Quiz {
         userPriorities[3] = scan2.nextInt();
 
 
-        String[] userPrStrings = new String[4];
+        for (int i=0; i < 2; i++){
+            
+            switch (userPriorities[i]) {
+                case 1: user.customization = true;
+                        break;
+                case 2: user.buildTime = true;
+                        break;
+                case 3: user.cost = true;
+                        break;
+                case 4: user.userFriendly = true;
+                        break;
+                case 5: user.risk = true;
+                        break;
+                case 6: user.appScale = true;
+                        break;
+            }
+        }
+
+        for (int i=2; i < 4; i++){
+            
+            switch (userPriorities[i]) {
+                case 1: user.customization = false;
+                        break;
+                case 2: user.buildTime = false;
+                        break;
+                case 3: user.cost = false;
+                        break;
+                case 4: user.userFriendly = false;
+                        break;
+                case 5: user.risk = false;
+                        break;
+                case 6: user.appScale = false;
+                        break;
+            }
+        }
 
 
+
+        for(int i = 0; i < results.size(); i++){
+
+            if(user.customization == results.get(i).customization){
+                results.get(i).matches++;
+            }
+            if(user.buildTime == results.get(i).buildTime){
+                results.get(i).matches++;
+            }
+            if(user.cost == results.get(i).cost){
+                results.get(i).matches++;
+            }
+            if(user.appScale == results.get(i).appScale){
+                results.get(i).matches++;
+            }
+            if(user.userFriendly == results.get(i).userFriendly){
+                results.get(i).matches++;
+            }
+            if(user.risk == results.get(i).risk){
+                results.get(i).matches++;
+            }
+
+            
+        }
+
+
+        for(int i = 0; i < results.size(); i++){
+            System.out.println(results.get(i).name + " has " + results.get(i).matches + " match votes.");
         }
 
 
 
 
 
-/* 
-
-        user.customization = userRatings[0];
-        user.buildTime = userRatings[1];
-        user.cost = userRatings[2];
-        user.userFriendly = userRatings[3];
-        user.risk = userRatings[4];
-        user.appScale = userRatings[5];
-
-*/
+        scan1.close();
+        scan2.close();
+            
+    }
 
 
-
-    //}
-
-
-
-
-
-    //void matching(Platform user, Platform data1, Platform data2, Platform data3){
-
-
-
-    //}
 
 
 
