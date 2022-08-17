@@ -9,5 +9,8 @@ public class Platform {
     boolean risk;
     boolean appScale;
     int matches;
+    String description;
+    String pros;
+    String cons;
 
 }
